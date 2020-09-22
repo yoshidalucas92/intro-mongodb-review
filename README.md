@@ -1,12 +1,21 @@
 # **intro-mongodb-review**
-## Repositório criado para revisão de introdução ao **MongoDB**.
-## A revisão está dividida em duas partes:
+
+## Repositório criado para revisão de introdução ao **MongoDB**
+
+  Baseado nas últimas semanas de conteúdos e na [documentação oficial](https://docs.mongodb.com/manual/).<BR>
+  Será utilizado uma database inspirada na [aplicação](https://github.com/orlando-messias/next-level-week-2) feita por @orlando-messias na NLW-2 (evento realizado pela Rocketseat).
+
+## A revisão está dividida em três partes:
   * ## Parte I - CRUD (básico);
-    * ### 1 - Inserts - One/Many.
-    * ### 2 - Find
-    * ### 3 - Count
-    * ### 4 - Sort
-  * ## Parte II - Aggregations.
+    * ### 1 - Inserts - One/Many;
+    * ### 2 - Find;
+    * ### 3 - Count/itcount;
+    * ### 4 - Sort;
+  * ## Parte II - CRUD (Bônus)
+    * ### 1 - Updates - One/Many
+    * ### 2 - Search (text)
+    * ### 3 - Regex
+  * ## Parte III - Aggregations.
     * ### 1 - Match
     * ### 2 - Project
     * ### 3 - Unwind
@@ -19,7 +28,7 @@
   ### [Script de criação da database e collections](/scripts/createdb.js)
 <BR><BR>
 
-# **Part I - CRUD**
+# **Parte I - CRUD**
   
   ## **1 - InsertOne/InsertMany**
 
@@ -27,7 +36,7 @@
   ---------------------------- | ----------------------------
   `db.collection.insertOne()`  |  Insere um documento na coleção.
   `db.collection.insertMany()` |  Insere vários documentos na coleação.
-  `db.collection.insert()`     |  Insere um ou vários documentos na coleção. É recomendado usar apenas um dos dois métodos acima.
+  `db.collection.insert()`     |  Insere um ou vários documentos na coleção.<BR> É recomendado usar apenas um dos dois métodos acima.
 
   * Exemplo com **insertOne()**
   ```
@@ -63,18 +72,45 @@
   ```
 
   ## **2 - Find**
+
   `db.collection.find({ query }, { projection })`
   Parâmetro  |  Descrição
   ---------- | ----------
-  query      | opcional figfdog
-  projection |  opcional dusfhlijdas
+  query      | Opcional. Especifica o filtro de seleção usando [operadores de consulta](https://docs.mongodb.com/manual/reference/operator/query/#query-selectors).<BR>Para retornar todos os documentos em uma coleção, omita este parâmetro ou passe um documento vazio ({}).
+  projection |  Opcional. Especifica os campos a serem retornados nos documentos que correspondem ao filtro da consulta. Para retornar todos os campos nos documentos correspondentes, omita este parâmetro. [Leia mais em operadores de projeção](https://docs.mongodb.com/manual/reference/operator/query/#projection-operators)
   <BR>
 
-  enunciado
+  > * O parâmetro de projeção determina quais campos são retornados nos documentos correspondentes. O parâmetro de projeção gera documento(s) nessa forma
+  `{ <field1>: <value>, <field2>: <value> ... }`
+
+  Projection              | Description
+  ------------------------|------------
+  `<field>`: <1 ou true>  | Especifica a **INCLUSÃO** de um campo na projeção 
+  `<field>`: <0 ou false> | Especifica a **EXCLUSÃO** de um campo na projeção
+  Retornando todos os documentos:
   ```
-  <exemplo>
+    db.collection.find();
+    //  ou
+    db.collection.find({});
+
+    // retornar todos os documentos a partir do 10°
+    db.collection.find().skip(9);
+
+    // retornar documentos do 10°ao 15°
+    db.collection.find().skip(9).limit(5);
   ```
-  ## **3 - Count**
+  Retornando apenas um documento
+  ```
+    //  retornar o primeiro documento com base no(s) filtros pelos operadores de consulta
+    db.collection.findOne();
+    //  ou
+    db.collection.find().limit(1);
+    //  ---------------------------------------------------
+
+    //  retornar determinado documento, no caso, o 25°.
+    db.collection.find().skip(24).limit(1);
+  ```
+  ## **3 - Count/itcount**
   <BR>
   
   enunciado
@@ -88,21 +124,22 @@
   ```
   <exemplo>
   ```
-  ## **5 - Regex**
+# **Parte II - CRUD (Bônus)**
+  ## **1 - UpdateOne/UpdateMany**
   <BR>
   
   enunciado
   ```
   <exemplo>
   ```
-  ## **6 - Search (text)**
+  ## **2 - Search (text)**
   <BR>
   
   enunciado
   ```
   <exemplo>
   ```
-  ## **7 - UpdateOne/UpdateMany**
+  ## **3 - Regex**
   <BR>
   
   enunciado
@@ -110,7 +147,7 @@
   <exemplo>
   ```
 --------
-# **Part II - Aggregations**
+# **Parte III - Aggregations**
   ## **1 - Match**
   ```
   definição e exemplo
