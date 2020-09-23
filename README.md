@@ -209,7 +209,7 @@ db.users.updateMany(
 
 > [Mais sobre Update Operations](https://docs.mongodb.com/manual/crud/#update-operations)
 
-> [Bônus: Delete operations](https://docs.mongodb.com/manual/crud/#update-operations)
+> [Bônus: Delete operations](https://docs.mongodb.com/manual/crud/#delete-operations)
 
 ### **2 - Text (search)**
 
@@ -231,9 +231,9 @@ Sintaxe:
 
 #### search
 
-No campo\$ search, especifique uma sequência de palavras e o operador de texto analisa e usa para consultar o índice de texto.
+No campo $search, especifique uma sequência de palavras e o operador de texto analisa e usa para consultar o índice de texto.
 
-O operador de texto trata a maioria da pontuação na string como delimitadores, exceto um hífen-menos (-) que nega o termo ou aspas duplas com escape `\"` que especifica uma frase.
+O operador de texto trata a maioria da pontuação na string como delimitadores, exceto um hífen-menos (-) que nega o termo ou aspas duplas com escopo `\"` que especifica uma frase.
 
 Buscar por uma única palavra:
 
