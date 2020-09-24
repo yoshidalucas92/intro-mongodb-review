@@ -266,9 +266,9 @@ db.users.find({
 > - Cada coleção pode ter apenas um índice do tipo text, porém o índice text pode indexar vários campos.
 > - Mais sobre [\$text](https://docs.mongodb.com/manual/core/index-text/).
 
-
+O exemplo a seguir mostra o índice text indexando mais de um campo da mesma collection:
 ```
-db.reviews.createIndex(
+db.collection.createIndex(
    {
      subject: "text",
      comments: "text"
