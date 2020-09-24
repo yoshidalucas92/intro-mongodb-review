@@ -320,7 +320,8 @@ db.collection.aggregate([
 
 ### **3 - $unwind e $group**
 
-### **\$unwind**: Desconstrói um campo de matriz dos documentos de entrada para **gerar um documento para cada elemento**. Cada documento de saída é o documento de entrada com o valor do campo da matriz substituído pelo elemento.
+### **\$unwind**:
+Desconstrói um campo de matriz dos documentos de entrada para **gerar um documento para cada elemento**. Cada documento de saída é o documento de entrada com o valor do campo da matriz substituído pelo elemento.
 
 ```
 db.collection.aggregate([{ $unwind: <field path> }]);
