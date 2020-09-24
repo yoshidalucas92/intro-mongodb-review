@@ -51,7 +51,7 @@ Será utilizado uma database inspirada na **[aplicação](https://github.com/orl
   db.classes.insertOne({
     "_id": 1,
     "user_id": 1,
-    "subject": "Desenvolvimento"
+    "subject": "Desenvolvimento",
     "cost": 80.0,
   });
 ```
@@ -68,13 +68,13 @@ Será utilizado uma database inspirada na **[aplicação](https://github.com/orl
         //  _id = id do documento, da aula
         "_id": 2,
         //  user_id = id de user, docente
-        "user_id": 2
+        "user_id": 2,
         "subject": "Educação Física",
         "cost": 33.0,
     },
     {
         "_id": 3,
-        "user_id": 3
+        "user_id": 3,
         "subject": "Português",
         "cost": 25.0,
     }
@@ -113,7 +113,7 @@ Retornando todos os documentos:
   db.collection.find().skip(9);
 
   // retornar documentos do 10°ao 15°, sem filtros/projeção
-  db.collection.find().skip(9).limit(5);
+  db.collection.find().skip(9).limit(6);
 ```
 
 Retornando apenas um documento:
@@ -234,6 +234,8 @@ Sintaxe:
 No campo $search, especifique uma sequência de palavras e o operador de texto analisa e usa para consultar o índice de texto.
 
 O operador de texto trata a maioria da pontuação na string como delimitadores, exceto um hífen-menos (-) que nega o termo ou aspas duplas com escopo `\"` que especifica uma frase.
+
+    " \" isso é uma frase \" "
 
 Buscar por uma única palavra:
 
