@@ -158,7 +158,7 @@ db.collection.find().sort({ field: <1 ou -1> });
 
 | Parâmetro | Valor | Ordem       |
 | --------- | ----- | ----------- |
-| field     | 1     | Ascendente  |
+| field     |  1    | Ascendente  |
 | field     | -1    | Decrescente |
 
 ---
@@ -263,6 +263,19 @@ db.users.find({
   }
 });
 ```
+> - Cada coleção pode ter apenas um índice do tipo text, porém o índice text pode indexar vários campos.
+> - Mais sobre [\$text](https://docs.mongodb.com/manual/core/index-text/).
+
+
+```
+db.reviews.createIndex(
+   {
+     subject: "text",
+     comments: "text"
+   }
+ );
+ ```
+
 ### **3 - $regex**
 
 Fornece recursos de expressão regular para strings de correspondência de padrões em consultas.
